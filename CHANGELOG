@@ -1,50 +1,50 @@
-> Add:			Omnivore: would eat anything, but NOT same Genes. - reused in (eat-othersa) [done]
-> Add:			Carnivores: Eat only plant-&everything-eaters. [done]
-> Add:			Herbivores: Just stay with plants. [done]
-> Add:			Adding Age to all species. [done] | Version 1.0.2
-> Improve:	Let species use the same function, instead of Copy&Pasta 2times. [done] | Version 1.1
-> Add:			Count animals. Just to have some statistics in it [done] | Version 1.1.1
-> Bugfix:		Get the `selfeating'-bug fixxed [done] | Version 1.1.1
-> Add:			Let animals fight eat each other before eating. (will be based on energy & age) [done] | Version 1.2.0
-> Add:			Getting Sex for animals based on genes [done] | Version 1.2.1
-> Improve:	Rewrite reproduce-animal, to have more fun at this point. [done] | Version 1.2.2
-> Add:			At the beginning - Mode to have self-reproduction (also fallback if low population) [done] | Version 1.2.3
-> Change:		Smaller Map for this Version, because of still random movement. [done] | Version 1.2.3
-> Bugfix:		If male animal comes to female, female moves away => no sex. [done] | Version 1.2.4
-> Improve:	Make childs more like its parents, carn- omn- herbivore should not stay @ random. [done] | Version 1.2.4
-> Improve:	Make source look better (combine let) [done] | Version 1.2.4
-> Improve:	Make statistics show with (draw-world) - also lenght of round given by user in days. [done] | Version 1.2.5 
-> Improve:	Adding a better gene based (havingsex) and (reproduce-animal) [done] | Version 1.2.5
-> Add:			Print a link to source when source is typed in [done] | Version 1.2.6
-> Add:			Print a short how-to on first-load [done] | Version 1.2.6
-> Improve:	Making incest possible again, using gendiff as `Health'-factor for childs. [done] | Version 1.2.6
-> Add:			Making it possible to download the source into the current directory. [done] | Version 1.2.7-1 
-> Change:		Dynamic map size, to get rid of overpopulation. [done] | Version 1.2.7-2
-> Change:		Restructure Source-code. Main-function on the end [done] | Version 1.2.7-2
-> Change:		Getting *height* and *width* on map to its real size. [done] | Version 1.2.8-1
-> Add:			Getting some fire in here [done] | Version 1.2.8-1
-> Bugfix:		spreadfire(), because of endless map [done] | Version 1.2.8-2
-> Add:			Simple Illness for all animals. (herb- and omnivores can change the sick-status by eating plants, carnivores just get sick.) [done] | Version 1.2.8-2
-> Change:		Splitting evolution.lisp in more files. [done] | Version 1.3.0
-> Improve:	Better (startup), because user should know a little more.[done] | Version 1.3.0
-> Add:			Tell the user that the game is over when animals-alive <= 0 [done] | Version 1.3.0
-> Change:		Moving it to gist. [done] | Version 1.3.0
-> Change:		Rename it to `an_evoltion.lisp' because of gists fileorder [done] | Version 1.3.0
-> Bugfix:		Source-Code and Download links [done] Version 1.3.0 
-> Improve:	Make a smaller default map to get more animals [done] | Version 1.3.0-1
-> Add:			Giving the ctype variable to the (animal-typ animal-nu) & making evolution more "real" [done] | Version 1.3.1
-> Improve:	Make less Global-variables. [done] | Version 1.3.1
-> Improve:	Getting a better fight-mode for animals. Included into (eatnew (animal)) [done] | Version 1.3.1
-> Improve:	Replace the prin/c/t/1-lines with some beautiful (format) [done] | Version 1.3.1-1
-> Add:			Make an alternative move(animal) function, to have non-random-moves too [done] | Version 1.3.2
-> Improve: 	Expand statistics [done] | Version 1.3.2
-> Improve: 	Replace strings with symbols [done] | Version 1.3.2-2
-> Improve:	Speed up (draw-world) [done] | 04042013
-> Change:		Moving to git [done] | 04042013
-> Change:		Moved to SBCL from CLISP to test Source [done] | 04042013
-> Bugfix:		move-logic() Because of endless loop with two animals. [todo] 
-> Improve:	Have a look at (move-logic) (spreadfire) & (checkfortarget) [todo]
-> Improve:	Make the functions more functional, add tail calls etc. [todo]
-> Improve:	Get lazy-programming when it's possible [todo]
-> Add:			Implement an svg evolution-map to view at a webbrowser [todo]
-> Add:			Get a full GUI into a webserver [todo]
+> Add:      Omnivore: would eat anything, but NOT same Genes. - reused in (eat-othersa) [done]
+> Add:      Carnivores: Eat only plant-&everything-eaters. [done]
+> Add:      Herbivores: Just stay with plants. [done]
+> Add:      Adding Age to all species. [done] | Version 1.0.2
+> Improve:  Let species use the same function, instead of Copy&Pasta 2times. [done] | Version 1.1
+> Add:      Count animals. Just to have some statistics in it [done] | Version 1.1.1
+> Bugfix:   Get the `selfeating'-bug fixxed [done] | Version 1.1.1
+> Add:      Let animals fight eat each other before eating. (will be based on energy & age) [done] | Version 1.2.0
+> Add:      Getting Sex for animals based on genes [done] | Version 1.2.1
+> Improve:  Rewrite reproduce-animal, to have more fun at this point. [done] | Version 1.2.2
+> Add:      At the beginning - Mode to have self-reproduction (also fallback if low population) [done] | Version 1.2.3
+> Change:   Smaller Map for this Version, because of still random movement. [done] | Version 1.2.3
+> Bugfix:   If male animal comes to female, female moves away => no sex. [done] | Version 1.2.4
+> Improve:  Make childs more like its parents, carn- omn- herbivore should not stay @ random. [done] | Version 1.2.4
+> Improve:  Make source look better (combine let) [done] | Version 1.2.4
+> Improve:  Make statistics show with (draw-world) - also lenght of round given by user in days. [done] | Version 1.2.5 
+> Improve:  Adding a better gene based (havingsex) and (reproduce-animal) [done] | Version 1.2.5
+> Add:      Print a link to source when source is typed in [done] | Version 1.2.6
+> Add:      Print a short how-to on first-load [done] | Version 1.2.6
+> Improve:  Making incest possible again, using gendiff as `Health'-factor for childs. [done] | Version 1.2.6
+> Add:      Making it possible to download the source into the current directory. [done] | Version 1.2.7-1 
+> Change:   Dynamic map size, to get rid of overpopulation. [done] | Version 1.2.7-2
+> Change:   Restructure Source-code. Main-function on the end [done] | Version 1.2.7-2
+> Change:   Getting *height* and *width* on map to its real size. [done] | Version 1.2.8-1
+> Add:      Getting some fire in here [done] | Version 1.2.8-1
+> Bugfix:   spreadfire(), because of endless map [done] | Version 1.2.8-2
+> Add:      Simple Illness for all animals. (herb- and omnivores can change the sick-status by eating plants, carnivores just get sick.) [done] | Version 1.2.8-2
+> Change:   Splitting evolution.lisp in more files. [done] | Version 1.3.0
+> Improve:  Better (startup), because user should know a little more.[done] | Version 1.3.0
+> Add:      Tell the user that the game is over when animals-alive <= 0 [done] | Version 1.3.0
+> Change:   Moving it to gist. [done] | Version 1.3.0
+> Change:   Rename it to `an_evoltion.lisp' because of gists fileorder [done] | Version 1.3.0
+> Bugfix:   Source-Code and Download links [done] Version 1.3.0 
+> Improve:  Make a smaller default map to get more animals [done] | Version 1.3.0-1
+> Add:      Giving the ctype variable to the (animal-typ animal-nu) & making evolution more "real" [done] | Version 1.3.1
+> Improve:  Make less Global-variables. [done] | Version 1.3.1
+> Improve:  Getting a better fight-mode for animals. Included into (eatnew (animal)) [done] | Version 1.3.1
+> Improve:  Replace the prin/c/t/1-lines with some beautiful (format) [done] | Version 1.3.1-1
+> Add:      Make an alternative move(animal) function, to have non-random-moves too [done] | Version 1.3.2
+> Improve:  Expand statistics [done] | Version 1.3.2
+> Improve:  Replace strings with symbols [done] | Version 1.3.2-2
+> Improve:  Speed up (draw-world) [done] | 04042013
+> Change:   Moving to git [done] | 04042013
+> Change:   Moved to SBCL from CLISP to test Source [done] | 04042013
+> Bugfix:   move-logic() Because of endless loop with two animals. [todo] 
+> Improve:  Have a look at (move-logic) (spreadfire) & (checkfortarget) [todo]
+> Improve:  Make the functions more functional, add tail calls etc. [todo]
+> Improve:  Get lazy-programming when it's possible [todo]
+> Add:      Implement an svg evolution-map to view at a webbrowser [todo]
+> Add:      Get a full GUI into a webserver [todo]
