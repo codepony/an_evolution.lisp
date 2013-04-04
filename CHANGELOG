@@ -42,6 +42,7 @@
 > Improve:  Speed up (draw-world) [done] | 04042013
 > Change:   Moving to git [done] | 04042013
 > Change:   Moved to SBCL from CLISP to test Source [done] | 04042013
+> Change:   Deleted (down-source)-function + updated source-link [done] | 04042013
 > Bugfix:   move-logic() Because of endless loop with two animals. [todo] 
 > Improve:  Have a look at (move-logic) (spreadfire) & (checkfortarget) [todo]
 > Improve:  Make the functions more functional, add tail calls etc. [todo]
