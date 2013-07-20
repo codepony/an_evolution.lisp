@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 |#
 
+
 ;; At first load all the needed files. This was made to have a better structured source-code.
 (load "define.lisp")
 (load "move-turn.lisp")
@@ -28,18 +29,17 @@
 (load "draw-world.lisp")
 (load "move-spec.lisp")
 
+
 (defun startup ()
 (format t "~%type `info' to get info about the programm and the map itself")
 (format t "~%type in a number of days you want to simulate or just press ENTER for 1 day")
 (format t "~%type `quit' to exit")
 (format t "~%type `source' to get the link to the source code.")
-;; (format t "~%type `down-source' to get a copy of the source-code in you current directory (Only works in CLISP. wget required)") ;Removed 
 (format t "~%type `lightning' to emulate a lightning-bolt hitting a plant to produce fire, and see the world burn.~%")
-;;(fresh-line) (princ #\newline)
 (evolution))
 
 
-;;Creating some UserInterface
+;; Creating some UserInterface:
 (defun evolution ()
   (statistic)
   (setf *tmp-eaten-plants* 0)
@@ -48,12 +48,13 @@
   (setf *tmp-logic-moves* 0)
   (draw-world)
   (fresh-line)
-  (let ((str (read-line))) ;;Waits for user INPUT => if 'quit' = exit evolution.
+  ;; Waits for user INPUT => if 'quit' = exit evolution:
+  (let ((str (read-line)))
     (cond ((equal str "quit") (format t "~%Good Bye")
-;;                              (bye) ;; Uncomment this before building Because saying good-bye is always fine.
+                              ;; Uncomment this before building Because saying good-bye is always fine:
+                              ;; (bye)
                               )
           ((equal str "info") (format t "~%This programm is licensed under the AGPL.")
-                             ;; (print " An X shows an untyped animal (only on startup)") Not needed anymore, because first animals will be omnivores.
                               (format t "~%An P shows a herbivore.")
                               (format t "~%An M shows an omnivore.")
                               (format t "~%An F shows a carnivore.")
@@ -70,12 +71,18 @@
              )
            (evolution)
            )
-	  (t (let ((x (parse-integer str :junk-allowed t))) ;; Gets the integer out of str, let's you type in other chars after it. => :junk-allowed
-		(if x
-		    (loop for i
-			  below x
-			  do (update-world)
-                          if (zerop (mod i 100));;x - Number of days. @ all 100 days inserts a dot.
-			  do (princ #\.))
-		    (update-world)) ;; if there is no INPUT (or no right one) => simulates only 1 day
-		(evolution)))))) ;;recursive function
+          ;; Gets the integer out of str, let's you type in other chars after it. => :junk-allowed:
+          (t (let ((x (parse-integer str :junk-allowed t)))
+                (if x
+                  (loop for i below x
+                        do  (update-world)
+                        ;; x - Number of days. @ all 100 days inserts a dot:
+                            if (zerop (mod i 100))
+                              ;; Otherwise this would be "wrong":
+                              do (format t "~a~%" (+ i 100))
+                   )
+                  ;; if there is no INPUT (or no right one) => simulates only 1 day:
+                  (update-world))
+                ;;recursive function:
+                (evolution))))))
+

@@ -16,14 +16,17 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 |#
 
-;;Create our world
+
+;; Create our world:
 (defun draw-world ()
   (loop for y below (+ *height* 1)
         do (progn (fresh-line)
-                  (princ "|") ; Marks left side of the world
+                  ;; Marks left side of the world:
+                  (princ "|")
                   (loop for x below (+ *width* 1)
                         do (princ (let ((animal-found nil) (print-type nil))
-                                    (mapcar (lambda (animal) ;Checking for different animals in a very special way
+                                    ;; Checking for different animals in a very special way:
+                                    (mapcar (lambda (animal)
                                               (when (and (= (animal-x animal) x)
                                                          (= (animal-y animal) y))
                                                 (setf animal-found t)
@@ -34,13 +37,19 @@
                                                         ((carnivore) #\F)
                                                         ((none) #\X)
                                                         )))) *animals*)
-                                    (if (not animal-found) ;Printing the symbols to the map
+                                    ;; Printing the symbols to the map:
+                                    (if (not animal-found) 
                                       (cond ((some (lambda (fire)
                                                      (and (= (fire-x fire) x)
                                                           (= (fire-y fire) y)))
                                                    *fires*)
                                              #\#)
-                                            ((gethash (cons x y) *plants*) #\*) ;Fire, plants, "nothing" 
-                                            (t #\space)) ;In the case there are no animals.
-                                      print-type)))) ;Else: print the animal
-                  (princ "|")))) ;Marks right side of the world
+                                            ;; Fire, plants, "nothing":
+                                            ((gethash (cons x y) *plants*) #\*)
+                                            ;; In the case there are no animals:
+                                            (t #\space))
+                                      ;; Else, print the animal:
+                                      print-type))))
+                  ;; Marks right side of the world:
+                  (princ "|"))))
+

@@ -16,47 +16,49 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 |#
 
-;;Simulating a day in our world
+
+;; Simulating a day in our world:
 (defun update-world ()
-  (setf *animals* (remove-if (lambda (animal) ;;Removes dead animals from world
-				(<= (animal-energy animal) 0))
-			    *animals*))
-  (setf *fires* (remove-if (lambda (fire)  ;; Removes fire, if it's out burned (after 10 days)
+  ;; Removes dead animals from world:
+  (setf *animals* (remove-if (lambda (animal)
+                               (<= (animal-energy animal) 0))
+                             *animals*))
+  ;; Removes fire, if it's out burned (after 10 days):
+  (setf *fires* (remove-if (lambda (fire)
                              (>= (fire-lifet fire) 10))
                            *fires*))
   (setf *counter* 0)
-  (mapc (lambda (animal) ;; Ugly fix because of cnt animal
+  ;; Ugly fix because of cnt animal:
+  (mapc (lambda (animal)
           (cnt animal)
           ) *animals*)
-  (when (<= *counter* 0) ;; When all animals got "removed", the player looses the game.
+  ;; When all animals got "removed", the player looses the game:
+  (when (<= *counter* 0)
     (format t "The Game Is Over ~% AUTOMATIC RESET")
     (bye))
   (resizemap)
   (mapc (lambda (animal)
-	    (turn animal)
-	    (move-logic animal)
-	    (when (and (> (animal-age animal) 5) (or (equal (animal-typ animal) 'omnivore) (equal (animal-typ animal) 'carnivore)) (< (animal-age animal) 200)) 
-              (eat-new animal)  ;;Give parents & children 5 days to live together and/or have the time to run away.
-              )                 ;;At the age of 200 days, an animal won't be able to kill others anymore.
-	    (when (or (equal (animal-typ animal) 'omnivore) (equal (animal-typ animal) 'herbivore))
-              (eatp animal)
-              )
-            (when (and (> (animal-age animal) 5) (equal (animal-sex animal) 'n))
-              (givesex animal)
-              )
-            (when (> (animal-age animal) 5) 
-              (havesex animal)
-              )
-            (when (= (animal-preg animal)1)
-              (incf (animal-daysp animal))
-              )
-            (reproduce animal)
-            (older animal)
-            (typ animal)
-            (burn animal)
-            (issick animal)
-            )
-	 *animals*)
+          (turn animal)
+          (move-logic animal)
+          ;; Give parents & children 5 days to live together and/or have the time to run away:
+          ;; At the age of 200 days, an animal won't be able to kill others anymore:
+          (when (and (> (animal-age animal) 5) (or (equal (animal-typ animal) 'omnivore) (equal (animal-typ animal) 'carnivore)) (< (animal-age animal) 200)) 
+            (eat-new animal))
+          (when (or (equal (animal-typ animal) 'omnivore) (equal (animal-typ animal) 'herbivore))
+            (eatp animal))
+           (when (and (> (animal-age animal) 5) (equal (animal-sex animal) 'n))
+            (givesex animal))
+           (when (> (animal-age animal) 5) 
+            (havesex animal))
+           (when (= (animal-preg animal)1)
+            (incf (animal-daysp animal)))
+           (reproduce animal)
+           (older animal)
+           (typ animal)
+           (burn animal)
+           (issick animal)
+          )
+        *animals*)
   (mapc (lambda (fire)
           (spreadfire fire)
           (incf (fire-lifet fire))
@@ -67,7 +69,8 @@
 
 ;; Dynamic map-size | Version 1.2.7-2
 (defun resizemap ()
-  (setf *width* (+ *width-org* (round (/ *counter* 10)))) ;; Making a simple dynamic map size.
+  ;; Making a simple dynamic map size:
+  (setf *width* (+ *width-org* (round (/ *counter* 10))))
   (setf *height* (+ *height-org* (round (/ *counter* 30))))
-;;  (princ *width*) (princ *height*) ;; Debugging line
   )
+

@@ -16,28 +16,28 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 |#
 
-;;Get the age of animals | Version 1.0.2
+
+;; Get the age of animals | Version 1.0.2
 (defun older (animal)
   (incf (animal-age animal))
   (decf (animal-energy animal))
-  (if (equal (animal-age animal) 75) ;; Getting an energy-boot once in the life-time.
+  ;; Getting an energy-boot once in the life-time:
+  (if (equal (animal-age animal) 75)
     (incf (animal-energy animal) 150)))
 
 
-;; Handle the types of animals
-;; Carnivores, herbivores and omnivores
+;; Handle the types of animals - Carnivores, herbivores and omnivores:
 (defun typ (animal)
   (let ((typ (animal-typ animal)))
     (when (equal typ 'none)
       (let ((typset (random 3)))
         (when (= typset 0)
-          (setf (animal-typ animal) 'omnivore)
-          )
+          (setf (animal-typ animal) 'omnivore))
         (when (= typset 1)
-          (setf (animal-typ animal) 'herbivore)
-          )
+          (setf (animal-typ animal) 'herbivore))
         (when (= typset 2)
-          (setf (animal-typ animal) 'carnivore))))))
+          (setf (animal-typ animal) 'carnivore))
+        ))))
 
 
 ;; Count alive animals | Version 1.1.1
@@ -55,6 +55,8 @@
   (format t "~%Number of eaten animals: ~a" *animals-eaten*)
   (format t "~%Number of born animals this round: ~a" *tmp-animals-born*)
   (format t "~%Number of born animals: ~a" *animals-born*)
-  (format t "~&Number of logic-moves this round: ~a" *tmp-logic-moves*)
-  (format t "~&Number of logic-moves: ~a" *logic-moves*)
+  (format t "~%Number of logic-moves this round: ~a" *tmp-logic-moves*)
+  (format t "~%Number of logic-moves: ~a" *logic-moves*)
+  (format t "~%~%")
   )
+

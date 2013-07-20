@@ -16,11 +16,14 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 |#
 
+
 ;; Let fire happen | Version 1.2.8-1
 (defun setfire ()
   (format t "~%A lightning hits a plant~%")
-  (let ((key-list (loop for key being the hash-keys of *plants* collect key))) ;; Loops are great!
-    (let ((choosen-plant (nth (random (hash-table-count *plants*)) key-list))) ;; getting a random plant
+  ;; Loops are great:
+  (let ((key-list (loop for key being the hash-keys of *plants* collect key)))
+    ;; getting a random plant:
+    (let ((choosen-plant (nth (random (hash-table-count *plants*)) key-list)))
       (let ((xfire (car choosen-plant)) (yfire (cdr choosen-plant)))
         (remhash choosen-plant *plants*)
         (let ((fire-nu (make-fire :x xfire :y yfire :lifet 0)))
@@ -29,7 +32,8 @@
 
 ;; Spreading the fire on other plants | Version 1.2.8-1
 ;; It's still not perfect - sorry but I really hope it works.
-(defun spreadfire (fire)  ;; Test every field around the fire if there is a plant. ( 8 - cases)
+(defun spreadfire (fire)
+ ;; Test every field around the fire if there is a plant. ( 8 - cases):
  (let ((xfire (+ (fire-x fire) 1)) (yfire (fire-y fire)))
    (testfire xfire yfire) 
   (when (> xfire *width*)
@@ -94,23 +98,16 @@
 
 ;; Testing if fire spreads | Version 1.2.8-1
 (defun testfire (xfire yfire)
-  ;;(prin1 xfire) Debugging lines
-  ;;(prin1 yfire)
-  ;;(princ #\newline)
   (when (gethash (cons xfire yfire) *plants*)
     (let ((newfire (make-fire :x xfire :y yfire :lifet 0)))
       (push newfire *fires*)
-      (remhash (cons xfire yfire) *plants*)
-      )
-    )
-  )
+      (remhash (cons xfire yfire) *plants*))))
 
 
 ;; Killing an animal, if it touches the fire | Version 1.2.8-1
 (defun burn (animal)
   (mapc (lambda (fire)
           (when (and (equal (animal-x animal) (fire-x fire)) (equal (animal-y animal) (fire-y fire)))
-            (setf (animal-energy animal) 0)
-            ;;(princ "An animal burned!")
-            )
+            (setf (animal-energy animal) 0))
           ) *fires*))
+

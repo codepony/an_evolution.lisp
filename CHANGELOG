@@ -43,9 +43,12 @@
 > Change:   Moving to git [done] | 04042013
 > Change:   Moved to SBCL from CLISP to test Source [done] | 04042013
 > Change:   Deleted (down-source)-function + updated source-link [done] | 04042013
+> Improve:  Speedup move-logic a bit [done] | 20072013  
+> Improve:  Remove some ;princ and general code-beauty [done] | 20072013
 > Bugfix:   move-logic() Because of endless loop with two animals. [todo] 
 > Improve:  Have a look at (move-logic) (spreadfire) & (checkfortarget) [todo]
 > Improve:  Make the functions more functional, add tail calls etc. [todo]
 > Improve:  Get lazy-programming when it's possible [todo]
 > Add:      Implement an svg evolution-map to view at a webbrowser [todo]
 > Add:      Get a full GUI into a webserver [todo]
+
