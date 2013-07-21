@@ -35,7 +35,7 @@
   ;; When all animals got "removed", the player looses the game:
   (when (<= *counter* 0)
     (format t "The Game Is Over ~% AUTOMATIC RESET")
-    (bye))
+    (exit))
   (resizemap)
   (mapc (lambda (animal)
           (turn animal)

@@ -13,11 +13,11 @@
 > Bugfix:   If male animal comes to female, female moves away => no sex. [done] | Version 1.2.4
 > Improve:  Make childs more like its parents, carn- omn- herbivore should not stay @ random. [done] | Version 1.2.4
 > Improve:  Make source look better (combine let) [done] | Version 1.2.4
-> Improve:  Make statistics show with (draw-world) - also lenght of round given by user in days. [done] | Version 1.2.5 
+> Improve:  Make statistics show with (draw-world) - also length of round given by user in days. [done] | Version 1.2.5 
 > Improve:  Adding a better gene based (havingsex) and (reproduce-animal) [done] | Version 1.2.5
 > Add:      Print a link to source when source is typed in [done] | Version 1.2.6
 > Add:      Print a short how-to on first-load [done] | Version 1.2.6
-> Improve:  Making incest possible again, using gendiff as `Health'-factor for childs. [done] | Version 1.2.6
+> Improve:  Making incest possible again, using gendiff as `Health'-factor for child. [done] | Version 1.2.6
 > Add:      Making it possible to download the source into the current directory. [done] | Version 1.2.7-1 
 > Change:   Dynamic map size, to get rid of overpopulation. [done] | Version 1.2.7-2
 > Change:   Restructure Source-code. Main-function on the end [done] | Version 1.2.7-2
@@ -45,10 +45,11 @@
 > Change:   Deleted (down-source)-function + updated source-link [done] | 04042013
 > Improve:  Speedup move-logic a bit [done] | 20072013  
 > Improve:  Remove some ;princ and general code-beauty [done] | 20072013
-> Bugfix:   move-logic() Because of endless loop with two animals. [todo] 
+> Bugfix:   Replace (bye) with (exit) [done] | 21072013
 > Improve:  Have a look at (move-logic) (spreadfire) & (checkfortarget) [todo]
 > Improve:  Make the functions more functional, add tail calls etc. [todo]
 > Improve:  Get lazy-programming when it's possible [todo]
 > Add:      Implement an svg evolution-map to view at a webbrowser [todo]
 > Add:      Get a full GUI into a webserver [todo]
+> Bugfix:   move-logic() Because of endless loop with two animals. [wont fix] | This "simulates" a fight. 
 

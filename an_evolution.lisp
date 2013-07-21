@@ -52,7 +52,7 @@
   (let ((str (read-line)))
     (cond ((equal str "quit") (format t "~%Good Bye")
                               ;; Uncomment this before building Because saying good-bye is always fine:
-                              ;; (bye)
+                              ;; (exit)
                               )
           ((equal str "info") (format t "~%This programm is licensed under the AGPL.")
                               (format t "~%An P shows a herbivore.")
@@ -78,8 +78,8 @@
                         do  (update-world)
                         ;; x - Number of days. @ all 100 days inserts a dot:
                             if (zerop (mod i 100))
-                              ;; Otherwise this would be "wrong":
-                              do (format t "~a~%" (+ i 100))
+                              ;; If you type in 1000 the 1000 won't be printed:
+                              do (format t "~a~%" i)
                    )
                   ;; if there is no INPUT (or no right one) => simulates only 1 day:
                   (update-world))
