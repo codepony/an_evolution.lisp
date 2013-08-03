@@ -34,7 +34,6 @@
   (let ((pos (cons (animal-x animal) (animal-y animal))) (gena (animal-genes animal)) (agea (animal-age animal)) (typa (animal-typ animal)) (sexa (animal-sex animal)))
       (mapc (lambda (animal)
               (let ((posa (cons (animal-x animal) (animal-y animal))) (ageb (animal-age animal)) (genb (animal-genes animal)) (typb (animal-typ animal)) (sexb (animal-sex animal)))
-
                 (when (and (not (equal sexa sexb))(equal pos posa) (> agea  5) (> ageb 5) (not (equal gena genb)) (evenp (+ (car gena) (car genb))))
                   (when (and (not (equal typa 'omnivore)) (equal typa typb) (not (equal typb 'omnivore)))
                     (setf child-typ typa)
@@ -50,16 +49,13 @@
                     (setf (animal-ctyp animal) child-typ)
                     (setf (animal-preg animal) 1)
                     (setf (animal-cfact animal) *efficiency*)
-                    (setf *efficiency* 0))
-
-                  )))
+                    (setf *efficiency* 0)))))
             *animals*))
   (when (and (= success 1) (equal (animal-sex animal) 'f))
     (setf (animal-ctyp animal) child-typ)
     (setf (animal-cfact animal) *efficiency*)
     (setf *efficiency* 0)
-    (setf (animal-preg animal) 1))
-  ))
+    (setf (animal-preg animal) 1))))
 
 
 ;; Let the genes tell how efficient sex is! | Version 1.2.6
@@ -69,6 +65,5 @@
     (loop for i below (length gena) do 
           (when (not (equal (nth i gena) (nth i genb)))
             (incf gendiff))
-          (setf *efficiency* (/ (1+ gendiff) (1+ (length gena))))
-          )))
+          (setf *efficiency* (/ (1+ gendiff) (1+ (length gena)))))))
 

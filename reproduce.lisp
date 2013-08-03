@@ -38,12 +38,10 @@
         (setf (animal-typ animal-nu) (animal-ctyp animal-nu))
         ;; Randomly create Omnivores my 1/3 chance of getting one:
         (when (= (random 3) 2)
-          (setf (animal-typ animal-nu) 'omnivore)
-          )
+          (setf (animal-typ animal-nu) 'omnivore))
         ;; when there are many animals number of carnivores should raise: 
         (when (and (>= *counter* 10) (= (random 3) 2))
-          (setf (animal-typ animal-nu) 'carnivore)
-          )
+          (setf (animal-typ animal-nu) 'carnivore))
         (setf (animal-sex animal-nu) 'n)
         (setf (animal-preg animal-nu) 0)
         (setf (animal-cfact animal-nu) 0)
@@ -52,8 +50,7 @@
         ;; NOT - setting (animal-sick animal) because should be the same as parent
         (when (> (animal-cfact animal) 0)
           ;; Added 50 because sexeff is mostly low:
-          (setf (animal-energy animal-nu) (+ (round (* (animal-cfact animal) (animal-energy animal-nu))) 50 )) 
-          )
+          (setf (animal-energy animal-nu) (+ (round (* (animal-cfact animal) (animal-energy animal-nu))) 50 )))
         (setf (animal-preg animal) 0)
         (setf (animal-cfact animal) 0)
         (setf (animal-ctyp animal) 'none)

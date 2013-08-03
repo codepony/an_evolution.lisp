@@ -60,17 +60,14 @@
                               (format t "~%An F shows a carnivore.")
                               (format t "~%An * shows a plant.")
                               (format t "~%A # shows a fire burning.~%")
-                              (evolution)
-                              )
+                              (evolution))
           ((equal str "source") (format t "~%Look at the source here: https://github.com/codepony/an_evolution.lisp~%")
                                 (evolution))
           ((equal str "lightning")
            (if (> (hash-table-count *plants*) 0)
              (setfire)
-             (format t "~%There are no plants to burn.~%")
-             )
-           (evolution)
-           )
+             (format t "~%There are no plants to burn.~%"))
+           (evolution))
           ;; Gets the integer out of str, let's you type in other chars after it. => :junk-allowed:
           (t (let ((x (parse-integer str :junk-allowed t)))
                 (if x
@@ -79,8 +76,7 @@
                         ;; x - Number of days. @ all 100 days inserts a dot:
                             if (zerop (mod i 100))
                               ;; If you type in 1000 the 1000 won't be printed:
-                              do (format t "~a~%" i)
-                   )
+                              do (format t "~a~%" i))
                   ;; if there is no INPUT (or no right one) => simulates only 1 day:
                   (update-world))
                 ;;recursive function:

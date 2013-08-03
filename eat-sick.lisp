@@ -42,16 +42,13 @@
   (let ((posa (cons (animal-x animal) (animal-y animal)))(gena (animal-genes animal)) (agea (animal-age animal)) (energya (animal-energy animal)))
     (mapc (lambda (animal)
             (let ((posb (cons (animal-x animal) (animal-y animal))) (ageb (animal-age animal)) (genb (animal-genes animal)) (energyb (animal-energy animal)))
-
               (when (and (equal posa posb) (or (equal (animal-typ animal) 'omnivore) (equal (animal-typ animal) 'herbivore)) (> agea  5) (not (equal gena genb)) (oddp (+ (car gena) (car genb))))
                   (when (equal (animal-typ animal) 'herbivore)
                    (setf energy-loose (+ ageb (round (* 0.5 energya)) (round (* 0.2 energyb))))
-                   (setf damage (+ agea (round (* 1/3 energyb)) (round (* 0.1 energya))))
-                   )
+                   (setf damage (+ agea (round (* 1/3 energyb)) (round (* 0.1 energya)))))
                   (when (equal (animal-typ animal) 'omnivore)
                    (setf energy-loose (+ ageb (round (* 0.75 energya)) (round (* 0.2 energyb))))
-                   (setf damage (+ agea (round (* 2/3 energyb)) (round (* 0.1 energya))))
-                   )
+                   (setf damage (+ agea (round (* 2/3 energyb)) (round (* 0.1 energya)))))
                 (when (>= energy-loose energyb)
                   (incf *tmp-eaten-animals*)
                   (incf *animals-eaten*)
@@ -61,21 +58,18 @@
                   (setf (animal-energy animal) 0))
                 (when (not (>= energy-loose energyb))
                   (setf success 0)
-                  (decf (animal-energy animal) energy-loose))
-                ))) 
+                  (decf (animal-energy animal) energy-loose))))) 
           *animals*))
   (decf (animal-energy animal) damage)
   (when (= success 1)
     ;; Same as we do with the plants. higher age => less energy:
     (incf (animal-energy animal) (round (- *animal-energy* (* 0.1 (animal-age animal)))))
     (when (= sick-victim 1)
-      (setf (animal-sick animal) T)))
-  ))
+      (setf (animal-sick animal) T)))))
 
 
 ;; Testing for illness of animals | Version 1.2.8-2
 (defun issick (animal)
   (when (equal (animal-sick animal) T)
-    (setf (animal-energy animal) (round (* (animal-energy animal) 0.95)))
-    ))
+    (setf (animal-energy animal) (round (* (animal-energy animal) 0.95)))))
 

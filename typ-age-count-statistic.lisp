@@ -36,8 +36,7 @@
         (when (= typset 1)
           (setf (animal-typ animal) 'herbivore))
         (when (= typset 2)
-          (setf (animal-typ animal) 'carnivore))
-        ))))
+          (setf (animal-typ animal) 'carnivore))))))
 
 
 ;; Count alive animals | Version 1.1.1
@@ -57,6 +56,5 @@
   (format t "~%Number of born animals: ~a" *animals-born*)
   (format t "~%Number of logic-moves this round: ~a" *tmp-logic-moves*)
   (format t "~%Number of logic-moves: ~a" *logic-moves*)
-  (format t "~%~%")
-  )
+  (format t "~%~%"))
 

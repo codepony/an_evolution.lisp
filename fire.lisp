@@ -39,7 +39,6 @@
   (when (> xfire *width*)
     (setf xfire 0) 
     (testfire xfire yfire)))
- 
  (let ((xfire (+ (fire-x fire) 1)) (yfire (+ (fire-y fire) 1)))
    (testfire xfire yfire) 
   (when (> xfire *width*)
@@ -48,13 +47,11 @@
   (when (> yfire *height*)
     (setf yfire 0) 
     (testfire xfire yfire)))
- 
  (let ((xfire (fire-x fire)) (yfire (+ (fire-y fire) 1)))
    (testfire xfire yfire) 
   (when (> yfire *height*)
     (setf yfire 0) 
     (testfire xfire yfire)))
- 
  (let ((xfire (- (fire-x fire) 1)) (yfire (+ (fire-y fire) 1)))
    (testfire xfire yfire) 
   (when (< xfire 0)
@@ -63,13 +60,11 @@
   (when (> yfire *height*)
     (setf yfire 0) 
     (testfire xfire yfire)))
- 
  (let ((xfire (- (fire-x fire) 1)) (yfire (fire-y fire)))
    (testfire xfire yfire) 
   (when (< xfire 0)
     (setf xfire *width*)
     (testfire xfire yfire))) 
- 
  (let ((xfire (- (fire-x fire) 1)) (yfire (- (fire-y fire) 1)))
    (testfire xfire yfire) 
   (when (< xfire 0)
@@ -78,7 +73,6 @@
   (when (< yfire 0)
     (setf yfire *height*)
     (testfire xfire yfire)))
- 
  (let ((xfire (+ (fire-x fire) 1)) (yfire (- (fire-y fire) 1)))
    (testfire xfire yfire) 
   (when (> xfire *width*)
@@ -87,13 +81,11 @@
   (when (< yfire 0)
     (setf yfire *height*)
     (testfire xfire yfire)))
- 
  (let ((xfire (fire-x fire)) (yfire (- (fire-y fire) 1)))
    (testfire xfire yfire) 
   (when (< yfire 0)
     (setf yfire *height*)
-    (testfire xfire yfire))) 
-  )
+    (testfire xfire yfire))))
 
 
 ;; Testing if fire spreads | Version 1.2.8-1
@@ -108,6 +100,6 @@
 (defun burn (animal)
   (mapc (lambda (fire)
           (when (and (equal (animal-x animal) (fire-x fire)) (equal (animal-y animal) (fire-y fire)))
-            (setf (animal-energy animal) 0))
-          ) *fires*))
+            (setf (animal-energy animal) 0)))
+        *fires*))
 

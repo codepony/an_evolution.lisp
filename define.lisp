@@ -91,6 +91,5 @@
         :age    0
         :sick   nil
         :genes  (loop repeat 8
-                  collecting (1+ (random 10)))
-        )))
+                  collecting (1+ (random 10))))))
 

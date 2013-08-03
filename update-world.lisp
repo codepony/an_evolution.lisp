@@ -56,13 +56,11 @@
            (older animal)
            (typ animal)
            (burn animal)
-           (issick animal)
-          )
+           (issick animal))
         *animals*)
   (mapc (lambda (fire)
           (spreadfire fire)
-          (incf (fire-lifet fire))
-          )
+          (incf (fire-lifet fire)))
         *fires*)
   (add-plants))
 
@@ -71,6 +69,5 @@
 (defun resizemap ()
   ;; Making a simple dynamic map size:
   (setf *width* (+ *width-org* (round (/ *counter* 10))))
-  (setf *height* (+ *height-org* (round (/ *counter* 30))))
-  )
+  (setf *height* (+ *height-org* (round (/ *counter* 30)))))
 
