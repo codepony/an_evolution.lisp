@@ -40,7 +40,7 @@
 
 
 ;; Count alive animals | Version 1.1.1
-(defparameter *counter* 1)
+(defvar *counter* 1)
 (defun cnt (animal)
   (incf *counter*))
 

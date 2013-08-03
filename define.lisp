@@ -22,8 +22,8 @@
 (defparameter *height-org* (- 15 5)) 
 
 ;; Resetting this because of the dynamic map-size:
-(defparameter *width* *width-org*) 
-(defparameter *height* *height-org*) 
+(defvar *width* *width-org*) 
+(defvar *height* *height-org*) 
  
 ;; Coordinates of the Jungle (Middle of the map) '(x y width height):
 (defparameter *jungle* '(22 5 10 10))
@@ -31,15 +31,15 @@
 (defparameter *plant-energy* 80) 
 
 ;; Global Statistics:
-(defparameter *animals-eaten* 0)
-(defparameter *plants-eaten* 0)
+(defvar *animals-eaten* 0)
+(defvar *plants-eaten* 0)
 ;; Because 1st animal won't be counted else:
-(defparameter *animals-born* 1)
-(defparameter *tmp-animals-born* 0)
-(defparameter *tmp-eaten-plants* 0)
-(defparameter *tmp-eaten-animals* 0)
-(defparameter *tmp-logic-moves* 0)
-(defparameter *logic-moves* 0)
+(defvar *animals-born* 1)
+(defvar *tmp-animals-born* 0)
+(defvar *tmp-eaten-plants* 0)
+(defvar *tmp-eaten-animals* 0)
+(defvar *tmp-logic-moves* 0)
+(defvar *logic-moves* 0)
 
 ;; Growing plants:
 (defparameter *plants* (make-hash-table :test #'equal))
@@ -62,7 +62,7 @@
 ;; Define the fire here | Version 1.2.8-1
 (defstruct fire x y lifet)
 ;; empty list, because no fire on startup:
-(defparameter *fires* (list))
+(defvar *fires* (list))
 
 ;; One animal gives an animal 100 days of energy:
 (defparameter *animal-energy* 100)

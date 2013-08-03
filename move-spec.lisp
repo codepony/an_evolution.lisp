@@ -20,9 +20,9 @@
 ;; Logical thinking for moving | Version 1.3.2
 ;; x == width | y == height (just to remember)
 ;; Plants are saved like (x . y)
-(defparameter *isfire* (make-array 8))
-(defparameter *isplant* (make-array 8))
-(defparameter *isanimal* (make-array 8))
+(defvar *isfire* (make-array 8))
+(defvar *isplant* (make-array 8))
+(defvar *isanimal* (make-array 8))
 
 
 (defun move-logic (animal)
