@@ -17,8 +17,8 @@
 |#
 
 
-;; Handling the movement of the animals:
 (defun move (animal)
+  "This makes a random movement possible."
   (let ((dir (animal-dir animal))
         (x (animal-x animal))
         (y (animal-y animal)))
@@ -37,9 +37,9 @@
     (decf (animal-energy animal))))
   
 
-;; Change of direction (animals)
-;; As you can see the direction is based on their genes:
 (defun turn (animal)
+  "Change of direction (animals)
+   As you can see the direction is based on their genes"
   (let ((x (random (apply #'+ (animal-genes animal)))))
     (labels ((angle (genes x)
                (let ((xnu (- x (car genes))))

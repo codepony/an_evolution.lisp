@@ -17,19 +17,17 @@
 |#
 
 
-;; Giving a sex to the animals | Version 1.2.1
 (defun givesex (animal)
-  ;; The sum of genes decides the sex of the animal.
+   "Giving a sex to the animals based on the sum of genes decides the sex of the animal"
   (if (oddp (apply '+ (animal-genes animal)))
     (setf (animal-sex animal) 'f)
     (setf (animal-sex animal) 'm)))
 
 
-;; Having sex here | Version 1.2.2
-;; Same types will reproduce of course
-;; When there is any omnivore, the child-typ will be random.
-;; Carnivores & herbivores can't have sex.
 (defun havesex (animal)
+  "Same types will reproduce of course
+   When there is any omnivore, the child-typ will be random.
+   Carnivores & herbivores can't have sex."
   (let ((child-typ 'none) (success 0)) 
   (let ((pos (cons (animal-x animal) (animal-y animal))) (gena (animal-genes animal)) (agea (animal-age animal)) (typa (animal-typ animal)) (sexa (animal-sex animal)))
       (mapc (lambda (animal)
@@ -58,9 +56,9 @@
     (setf (animal-preg animal) 1))))
 
 
-;; Let the genes tell how efficient sex is! | Version 1.2.6
 (defparameter *efficiency* 0)
 (defun sexeff (gena genb)
+  "Let the genes tell how efficient sex is"
   (let ((gendiff 0))
     (loop for i below (length gena) do 
           (when (not (equal (nth i gena) (nth i genb)))

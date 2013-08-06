@@ -26,20 +26,19 @@
 
 
 (defun move-logic (animal)
+  "Creates a moves that has some checking behind it, and is not random"
   ;; Coordinates we need to find direct neighbours:
   (let ((ismoved nil) (posx (animal-x animal)) (posy (animal-y animal))) 
     (lookaround posx posy)
-    
     ;; Makes 3 lists with pos, where something is:
     (let ((firelist (list)) (animallist (list)) (plantlist (list))) 
-      
-     (loop for x from 0 to 7 do
-           (if (not (equal (aref *isfire* x) nil))
-             (setf firelist (cons firelist (cons (aref *isfire* x) ()))))
-           (if (not (equal (aref *isplant* x) nil))
-             (setf plantlist (cons plantlist (cons (aref *isplant* x) ()))))
-           (if (not (equal (aref *isanimal* x) nil))
-             (setf animallist (cons animallist (cons (aref *isanimal* x) ()))))) 
+      (loop for x from 0 to 7 do
+            (if (not (equal (aref *isfire* x) nil))
+              (setf firelist (cons firelist (cons (aref *isfire* x) ()))))
+            (if (not (equal (aref *isplant* x) nil))
+              (setf plantlist (cons plantlist (cons (aref *isplant* x) ()))))
+            (if (not (equal (aref *isanimal* x) nil))
+              (setf animallist (cons animallist (cons (aref *isanimal* x) ()))))) 
      ;; because otherwise it would be (NIL (x y)..):
      (setf firelist (cdr firelist))
      (setf plantlist (cdr plantlist))
@@ -85,8 +84,8 @@
         (move animal))))))
 
 
-;; Simple function that calls checkfortarget(x y) with any coordinate around an animal:
 (defun lookaround (x y)
+  "Simple function that calls checkfortarget(x y) with any coordinate around an animal"
   (let ((xlook (+ x 1)) (ylook y) (check 0))
     (checkfortarget xlook ylook check) 
    (when (> xlook *width*)
@@ -141,8 +140,8 @@
     (checkfortarget xlook ylook check))))
 
 
-;; Function to check for targets around animals:
 (defun checkfortarget (xlook ylook check)
+  "Function to check for targets around animals"
   (if (gethash (cons xlook ylook) *plants*)
     (setf (aref *isplant* check) (cons xlook (cons ylook ())))
     (setf (aref *isplant* check) nil))

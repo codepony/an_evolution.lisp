@@ -46,33 +46,31 @@
 
 
 (defun random-plant (left top width height)
-  ;; Random Coordinates of the new plant:
+  "Creates random coordinates for a new plant and adds it to the hash table."
   (let ((pos (cons (+ left (random width)) (+ top (random height)))))
-    ;; Shows the plant in the hash-table:
     (setf (gethash pos *plants*) t)))
 
 
-;; Every day this function creates 2 plants => one in the jungle and one out:
 (defun add-plants ()
+  "Every day this function creates 2 plants => one in the jungle and one out
+   The jungle will be higher populated as the rest of the world because it's smaller."
   (apply #'random-plant *jungle*)
   (random-plant 0 0 *width* *height*))
-;; The jungle will be higher populated as the rest of the world because it's smaller.
 
 
-;; Define the fire here | Version 1.2.8-1
+;; Define the fire here
 (defstruct fire x y lifet)
 ;; empty list, because no fire on startup:
 (defvar *fires* (list))
 
-;; One animal gives an animal 100 days of energy:
 (defparameter *animal-energy* 100)
 
 
 ;; Creating animals:
 (defstruct animal x y energy dir typ sex preg daysp ctyp cfact age sick genes)
 
+;; Defines structure of the animals:
 (defparameter *animals*
-  ;; Get Coordinates of the animal here:
   (list (make-animal
         :x      (ash *width* -1)
         :y      (ash *height* -1)

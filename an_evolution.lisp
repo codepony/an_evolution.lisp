@@ -31,16 +31,17 @@
 
 
 (defun startup ()
-(format t "~%type `info' to get info about the programm and the map itself")
-(format t "~%type in a number of days you want to simulate or just press ENTER for 1 day")
-(format t "~%type `quit' to exit")
-(format t "~%type `source' to get the link to the source code.")
-(format t "~%type `lightning' to emulate a lightning-bolt hitting a plant to produce fire, and see the world burn.~%")
-(evolution))
+  "Gives a short introduction of the program and starts the UI."
+  (format t "~%type `info' to get info about the program and the map itself")
+  (format t "~%type in a number of days you want to simulate or just press ENTER for 1 day")
+  (format t "~%type `quit' to exit")
+  (format t "~%type `source' to get the link to the source code.")
+  (format t "~%type `lightning' to emulate a lightning-bolt hitting a plant to produce fire, and see the world burn.~%")
+  (evolution))
 
 
-;; Creating some UserInterface:
 (defun evolution ()
+  "Main function, also provides user interaction."
   (statistic)
   (setf *tmp-eaten-plants* 0)
   (setf *tmp-eaten-animals* 0)

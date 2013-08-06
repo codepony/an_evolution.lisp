@@ -17,8 +17,8 @@
 |#
 
 
-;; Create our world:
 (defun draw-world ()
+  "Draws the world as output, with coordinates fetched for each object."
   (loop for y below (+ *height* 1)
         do (progn (fresh-line)
                   ;; Marks left side of the world:

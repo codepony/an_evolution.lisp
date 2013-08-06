@@ -17,8 +17,8 @@
 |#
 
 
-;; Get the age of animals | Version 1.0.2
 (defun older (animal)
+  "Manages the age of animals"
   (incf (animal-age animal))
   (decf (animal-energy animal))
   ;; Getting an energy-boot once in the life-time:
@@ -26,8 +26,8 @@
     (incf (animal-energy animal) 150)))
 
 
-;; Handle the types of animals - Carnivores, herbivores and omnivores:
 (defun typ (animal)
+  "Manages the types of animals - Carnivores, herbivores and omnivores"
   (let ((typ (animal-typ animal)))
     (when (equal typ 'none)
       (let ((typset (random 3)))
@@ -39,14 +39,14 @@
           (setf (animal-typ animal) 'carnivore))))))
 
 
-;; Count alive animals | Version 1.1.1
 (defvar *counter* 1)
 (defun cnt (animal)
+  "Count alive animals"
   (incf *counter*))
 
 
-;; Statistic - Print and calc | Version 1.1.1
 (defun statistic ()
+  "Calculates and prints the statistics"
   (format t "~%Number of animals alive: ~a" *counter*)
   (format t "~%Number of eaten plants this round: ~a" *tmp-eaten-plants*)
   (format t "~%Number of eaten plants: ~a" *plants-eaten*)

@@ -17,8 +17,8 @@
 |#
 
 
-;; Simulating a day in our world:
 (defun update-world ()
+  " Simulates a day in our world"
   ;; Removes dead animals from world:
   (setf *animals* (remove-if (lambda (animal)
                                (<= (animal-energy animal) 0))
@@ -65,9 +65,8 @@
   (add-plants))
 
 
-;; Dynamic map-size | Version 1.2.7-2
 (defun resizemap ()
-  ;; Making a simple dynamic map size:
+  "Making a simple dynamic map size"
   (setf *width* (+ *width-org* (round (/ *counter* 10))))
   (setf *height* (+ *height-org* (round (/ *counter* 30)))))
 

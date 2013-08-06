@@ -17,8 +17,8 @@
 |#
 
 
-;; Reproduction of animals
 (defun reproduce (animal)
+  "Manages the whole reproduction, have a look at the source to understand how it works exactly"
   (let ((e (animal-energy animal)) (reproduction-energy 80))
     (when (and (>= e reproduction-energy) (or (<= *counter* 5) (and (>= (animal-daysp animal) 5) (> (animal-cfact animal) 0))))
       ;; Looses half of its energy to its child
