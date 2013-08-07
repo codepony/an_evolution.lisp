@@ -15,6 +15,12 @@ At first I wrote it to understand loops, but I got quite a lot of ideas to imple
 (load "an_evolution.lisp")
 (startup)
 ```
+Further instruction will follow on screen, but here are some commands:
+- 'info': Gives you a general overview.
+- 'source': Prints you the link to the source code.
+- 'lightning': This is used to simulate a lightning-bolt hitting a plant to produce fire.
+- 'quit': Will exit the game.
+
 ###or to build:
 ```
 (saveinitmem "an_evolution" :quiet t :norc t :executable t :init-function 'startup)
