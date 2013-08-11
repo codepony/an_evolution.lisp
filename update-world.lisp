@@ -30,7 +30,7 @@
   (setf *counter* 0)
   ;; Ugly fix because of cnt animal:
   (mapc (lambda (animal)
-          (cnt animal)
+          (cnt)
           ) *animals*)
   ;; When all animals got "removed", the player looses the game:
   (when (<= *counter* 0)

@@ -57,5 +57,7 @@
         ;; Resets the mother:
         (setf (animal-daysp animal) 0)
         (push animal-nu *animals*)
-        (incf *animals-born*) (incf *tmp-animals-born*)))))
+        (dbg :ael "A new animal (~a) was born.~%" (animal-typ animal-nu))
+        (incf *animals-born*)
+        (incf *tmp-animals-born*)))))
 

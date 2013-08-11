@@ -28,6 +28,7 @@
 (load "update-world.lisp")
 (load "draw-world.lisp")
 (load "move-spec.lisp")
+(load "debug.lisp")
 
 
 (defun startup ()
@@ -37,6 +38,7 @@
   (format t "~%type `quit' to exit")
   (format t "~%type `source' to get the link to the source code.")
   (format t "~%type `lightning' to emulate a lightning-bolt hitting a plant to produce fire, and see the world burn.~%")
+  (format t "~%type `debug' to switch debug state")
   (evolution))
 
 
@@ -55,6 +57,14 @@
                               ;; Uncomment this before building Because saying good-bye is always fine:
                               ;; (exit)
                               )
+          ((equal str "debug") 
+           (when (member :ael *dbg-ids*)
+             (format t "~%Debugging is now off.")
+             (undebug :ael)
+             (evolution))
+           (format t "~%Debugging is now on.")
+           (setdebug :ael)
+           (evolution))
           ((equal str "info") (format t "~%This programm is licensed under the AGPL.")
                               (format t "~%An P shows a herbivore.")
                               (format t "~%An M shows an omnivore.")

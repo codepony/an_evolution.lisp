@@ -19,6 +19,7 @@ Further instruction will follow on screen, but here are some commands:
 - 'info': Gives you a general overview.
 - 'source': Prints you the link to the source code.
 - 'lightning': This is used to simulate a lightning-bolt hitting a plant to produce fire.
+- 'debug': Will switch debugging on and off.
 - 'quit': Will exit the game.
 
 ###or to build:

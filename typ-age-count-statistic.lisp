@@ -40,7 +40,7 @@
 
 
 (defvar *counter* 1)
-(defun cnt (animal)
+(defun cnt ()
   "Count alive animals"
   (incf *counter*))
 

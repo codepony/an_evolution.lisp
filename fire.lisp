@@ -100,6 +100,7 @@
   "Killing an animal, if it touches the fire"
   (mapc (lambda (fire)
           (when (and (equal (animal-x animal) (fire-x fire)) (equal (animal-y animal) (fire-y fire)))
+            (dbg :ael "A ~a was burned successfully~%" (animal-typ animal))
             (setf (animal-energy animal) 0)))
         *fires*))
 

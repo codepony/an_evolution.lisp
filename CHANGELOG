@@ -46,6 +46,7 @@
 > Improve:  Speedup move-logic a bit [done] | 20072013  
 > Improve:  Remove some ;princ and general code-beauty [done] | 20072013
 > Bugfix:   Replace (bye) with (exit) [done] | 21072013
+> Improve:  Make use of basic debugging [done] | 11082013
 > Improve:  Have a look at (move-logic) (spreadfire) & (checkfortarget) [todo]
 > Improve:  Make the functions more functional, add tail calls etc. [todo]
 > Improve:  Get lazy-programming when it's possible [todo]

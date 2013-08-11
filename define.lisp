@@ -84,7 +84,7 @@
         :daysp  0 
         ;; child-typ: 
         :ctyp   'omnivore 
-        ;; For first run it's 100% - energy-factor based on genes cal. in (sexeff): 
+        ;; For first run it's 100% - energy-factor based on genes cal. in (sexeff):
         :cfact  1 
         :age    0
         :sick   nil
